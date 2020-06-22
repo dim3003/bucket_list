@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/view'
+
   get 'styles/atoms'
 
   get 'styles/molecules'
