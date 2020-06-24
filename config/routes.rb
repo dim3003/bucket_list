@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'ideas/index'
+
   get 'home/index'
 
   get 'styles/atoms'
