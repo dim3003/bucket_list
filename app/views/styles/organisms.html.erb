@@ -55,18 +55,9 @@
     <h2>02. Ideas</h2>
     <div>
       <ul class="bare-list float-grid css-grid">
-        <li>
-          <%= render(partial: 'idea_card', locals: {card_title: 'Watch the Northern Lights'}) %>
-        </li>
-        <li>
-          <%= render(partial: 'idea_card', locals: {card_title: 'A very long string to see if it works properly with ruby on rails'} ) %>
-        </li>
-        <li>
-          <%= render(partial: 'idea_card', locals: {card_title: 'Watch the Northern Lights'}) %>
-        </li>
-        <li>
-          <%= render(partial: 'idea_card', locals: {card_title: 'Watch the Northern Lights'}) %>
-        </li>
+        <% ['Watch the Northern Lights','A very long string to see if it works properly with ruby on rails', 'Joseph', 'Jonathan'].each do |item|%>
+          <li><%= render(partial: 'idea_card', locals: {card_title: item}) %></li>
+        <% end %>
       </ul>
     </div>
   </section>
