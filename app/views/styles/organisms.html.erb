@@ -2,13 +2,9 @@
   <div>
     <nav>
       <ul class="sub-navigation">
-        <% ['Atoms', 'Molecules','Organisms'].each do |item|%>
-          <% unless(item == 'Organisms')%>
-            <li><%= link_to(item,'/styles/' + item.downcase) %></li>
-          <% else %>
-            <li><%= link_to(item,'/styles/ #{item} ', class: 'current') %></li>
-          <% end %>
-        <% end %>
+        <%= render(partial:'sub_nav_item', locals: {  current: false, title: 'Atoms', uri: '/styles/atoms'}) %>
+        <%= render(partial:'sub_nav_item', locals: {  current: false, title: 'Molecules', uri: '/styles/molecules'}) %>
+        <%= render(partial:'sub_nav_item', locals: { current: true, title: 'Organisms', uri: '/styles/organisms'}) %>
 
         <li><a href="templates.html">Templates</a></li>
         <li><a href="#pages">Pages</a></li>
