@@ -4,9 +4,12 @@ class IdeasController < ApplicationController
     logger.info("Search completed using #{@search_term}")
   end
 
-  def create
-  end
-
   def new
   end
+
+  def create
+    redirect_to ideas_index_path
+
+  end
+
 end
