@@ -4,9 +4,9 @@
   </div>
   <div class="content-wrapper">
     <ul class="bare-list float-grid css-grid">
-    <% ['I', 'am', 'Slim Shady'].each do |item|%>
+    <% @ideas.each do |idea|%>
       <li>
-        <%= render(partial: 'idea_card', locals: {card_title:item})%>
+        <%= render(partial: 'idea_card', locals: {card_title: idea.title})%>
       </li>
     <% end %>
 
