@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200626095435) do
+ActiveRecord::Schema.define(version: 20200701131126) do
 
   create_table "ideas", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "done_count"
   end
 
 end
