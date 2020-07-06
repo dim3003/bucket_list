@@ -1,7 +1,7 @@
 <main>
   <div class="content-wrapper">
     <h1>Edit idea</h1>
-    <%= form_tag(idea_path(@idea), class: 'form--inpage') do %>
+    <%= form_tag(idea_path(@idea), class: 'form--inpage', method: 'PATCH') do %>
       <div class="input-group input-group--horizontal">
         <label class="input-group__label" for="title">Title</label>
         <%= text_field_tag('title', @idea.title, class: 'input-group__field') %>
@@ -16,7 +16,7 @@
       </div>
       <div class="prompt">
         <a class="prompt__cancel" href="#cancel">Cancel</a>
-        <%= button_tag('Create idea', class:"btn btn--primary prompt__confirm")%>
+        <%= button_tag('Edit idea', class:"btn btn--primary prompt__confirm")%>
       </div>
     <% end %>
   </div>

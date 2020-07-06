@@ -24,6 +24,10 @@ class IdeasController < ApplicationController
   end
 
   def update
+    id = params[:id]
+    @idea = Idea.find(id)
+
+    redirect_to account_ideas_path
   end
 
 end
