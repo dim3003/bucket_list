@@ -23,5 +23,5 @@ class IdeasController < ApplicationController
 
   def update
   end
-  
+
 end
