@@ -1,11 +1,12 @@
 <div class="card">
   <div class="card__thumb">
     <a href="ideas/one-example-idea.html">
-      <img src="/images/northern-lights-small.jpg"
-      srset="/images/northern-lights-small.jpg 500w,
-            /images/northern-lights-big.jpg 1000w"
-
-           alt="Northern lights over mountain covered in snow">
+      <% if(photo_url.nil?) %>
+        <img src='http://fpoimg.com/255x170'
+             alt='Northern lights over mountain covered in snow'>
+      <% else %>
+        <%= image_tag(photo_url) %>
+      <% end %>
     </a>
     <div class="card__intro">
       <h4 class="card__title"><%= card_title %> </h4>
