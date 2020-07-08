@@ -4,14 +4,26 @@ Capybara.run_server = false
 
 class CapybaraTest < ApplicationSystemTestCase
   test 'capybara works' do
-    visit('http://www.google.com')
+    visit('http://www.google.com/en')
     sleep(5.seconds)
-    fill_in('q', with: 'Ruby on Rails')
+    fill_in('q', with: 'Cinque Terre')
     sleep(5.seconds)
-    click_on('Search', match: :first)
-    click_on('Ruby on Rails', match: :first)
+    click_on('btnK', match: :first)
+    click_on('Wikipedia', match: :first)
     sleep(5.seconds)
-    click_on('Guides')
-    sleep(20.seconds)
+    click_on('Italian Riviera', match: :first)
+    sleep(5.seconds)
+  end
+
+  test 'we can use capybara' do
+    visit('https://en.wikipedia.org/wiki/Internet')
+    sleep(5.seconds)
+    fill_in('searchInput', with: 'Ruby programming language')
+    sleep(5.seconds)
+    click_on('searchButton', match: :first)
+    sleep(5.seconds)
+    click_on('Examples', match: :first)
+    sleep(5.seconds)
+    click_on('Hello world', match: :first)
   end
 end
