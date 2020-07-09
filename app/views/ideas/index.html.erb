@@ -7,7 +7,7 @@
     <% @ideas.each do |idea|%>
       <li>
         <%= render(partial: 'idea_card',
-                   locals: {card_title: idea.title, done_count: idea.done_count, photo_url: idea.photo_url})%>
+                   locals: {card_title: idea.title, done_count: idea.done_count, photo_url: idea.photo_url, idea: idea})%>
       </li>
     <% end %>
 
