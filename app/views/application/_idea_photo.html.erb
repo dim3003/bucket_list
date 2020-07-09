@@ -1,0 +1,6 @@
+<% if(photo_url.nil? || photo_url.empty?) %>
+  <img src='https://i.ytimg.com/vi/-rWT6JbRiAo/maxresdefault.jpg'
+       alt='Northern lights over mountain covered in snow'>
+<% else %>
+  <%= image_tag(photo_url) %>
+<% end %>

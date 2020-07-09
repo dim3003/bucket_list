@@ -9,6 +9,10 @@ class IdeasController < ApplicationController
   def new
   end
 
+  def show
+    @idea = Idea.find(params[:id])
+  end
+
   def create
     idea = Idea.new
     idea.title = params[:title]
