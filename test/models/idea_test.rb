@@ -32,4 +32,24 @@ class IdeaTest < ActiveSupport::TestCase
     idea.save!
     refute_equal(idea.updated_at, first_updated_at)
   end
+
+  test 'updated_at is changed after updating done_count' do
+    idea = Idea.new
+    idea.done_count = 42
+    idea.save!
+    first_updated_at = idea.updated_at
+    idea.done_count = 43
+    idea.save!
+    refute_equal(idea.updated_at, first_updated_at)
+  end
+
+  test 'updated_at is changed after updating photo_url' do
+    idea = Idea.new
+    idea.photo_url = 'https://images.unsplash.com/photo-1516632664305-eda5d6a5bb99?ixlib=rb-1.2.1&w=1000&q=80'
+    idea.save!
+    first_updated_at = idea.updated_at
+    idea.photo_url = 'http://data.freehdw.com/bunny-rabbit-cute-free-desktop.jpg'
+    idea.save!
+    refute_equal(idea.updated_at, first_updated_at)
+  end
 end
