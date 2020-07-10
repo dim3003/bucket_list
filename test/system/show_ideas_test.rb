@@ -15,6 +15,5 @@ class ShowIdeasTest < ApplicationSystemTestCase
     click_on('Edit', match: :first)
 
     assert_equal current_path, edit_idea_path(idea)
-
   end
 end

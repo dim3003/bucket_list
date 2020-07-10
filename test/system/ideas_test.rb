@@ -23,4 +23,17 @@ class IdeasTest < ApplicationSystemTestCase
     assert page.has_content?('Join a tennis club')
     assert page.has_content?('Start a blog')
   end
+
+  test 'edit idea test' do
+    idea = Idea.new
+    idea.save!
+    visit(edit_idea_path(idea))
+    fill_in('title', with: 'Climb Bishorn')
+    fill_in('done_count', with: 69)
+    click_on('Update', match: :first)
+    click_on('Climb Bishorn', match: :first)
+
+    assert page.has_content?('Climb Bishorn')
+    assert page.has_content?('69 have done this')
+  end
 end
