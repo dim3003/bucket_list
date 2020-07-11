@@ -3,7 +3,7 @@ class IdeasController < ApplicationController
     @search_term = params[:q]
     logger.info("Search completed using #{@search_term}")
 
-    @ideas = Idea.where('title LIKE ?', "%#{@search_term}%")
+    @ideas = Idea.search(@search_term)
   end
 
   def new
