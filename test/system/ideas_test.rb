@@ -54,4 +54,9 @@ class IdeasTest < ApplicationSystemTestCase
     refute page.has_content?('Visit Niagara Falls')
   end
 
+  test 'search no idea found' do
+    visit(ideas_index_path)
+    assert page.has_content?('No idea found')
+  end
+
 end
