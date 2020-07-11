@@ -77,4 +77,45 @@ class IdeaTest < ActiveSupport::TestCase
     assert_equal Idea.search('Stand').length, 2
   end
 
+  test 'most_recent no idea' do
+    assert_empty Idea.most_recent
+  end
+
+  test 'most_recent 2 ideas' do
+    idea_1 = Idea.new
+    idea_1.title = 'Stand at the top of the Empire State Building'
+    idea_1.save!
+    idea_2 = Idea.new
+    idea_2.title = 'Stand on the pyramids'
+    idea_2.save!
+
+    assert_equal Idea.most_recent.length, 2
+    assert_equal Idea.most_recent.first, idea_2
+  end
+
+  test 'most_recent 6 ideas' do
+    idea_1 = Idea.new
+    idea_1.title = 'Stand at the top of the Empire State Building'
+    idea_1.save!
+    idea_2 = Idea.new
+    idea_2.title = 'Stand on the pyramids'
+    idea_2.save!
+    idea_3 = Idea.new
+    idea_3.title = 'Stand at the top of the Empire State'
+    idea_3.save!
+    idea_4 = Idea.new
+    idea_4.title = 'Stand on the'
+    idea_4.save!
+    idea_5 = Idea.new
+    idea_5.title = 'Stand at the top of the Empire'
+    idea_5.save!
+    idea_6 = Idea.new
+    idea_6.title = 'Stand on'
+    idea_6.save!
+
+    assert_equal Idea.most_recent.length, 3
+    assert_equal Idea.most_recent.first, idea_6
+  end
+
+
 end
