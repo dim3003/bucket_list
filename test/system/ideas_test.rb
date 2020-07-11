@@ -53,4 +53,5 @@ class IdeasTest < ApplicationSystemTestCase
     assert page.has_content?('Climb Mont Blanc')
     refute page.has_content?('Visit Niagara Falls')
   end
+
 end
