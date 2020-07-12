@@ -31,4 +31,10 @@ class IdeasController < ApplicationController
     redirect_to account_ideas_path
   end
 
+  private
+    def idea_params
+
+
+    end
+
 end
