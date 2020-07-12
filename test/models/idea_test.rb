@@ -117,7 +117,7 @@ class IdeaTest < ActiveSupport::TestCase
     assert_equal Idea.most_recent.first, idea_6
   end
 
-  test 'Only desciption match' do
+  test 'search with description' do
     idea = Idea.new
     idea.title = 'Surfing in Portugal'
     idea.description = 'See what Atlantic coast waves are like!'
@@ -126,7 +126,7 @@ class IdeaTest < ActiveSupport::TestCase
     assert_equal Idea.search('coast').length, 1
   end
 
-  test 'Description and title match' do
+  test 'search with description and title' do
     idea_1 = Idea.new
     idea_1.title = 'Overnight hike in Switzerland'
     idea_1.description = 'Stay in a Swiss refuge in the mountains'
