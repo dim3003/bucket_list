@@ -15,9 +15,12 @@ class IdeasController < ApplicationController
   end
 
   def create
-    idea = Idea.new(idea_resource_params)
-    idea.save
-    redirect_to ideas_path
+    @idea = Idea.new(idea_resource_params)
+    if(@idea.save)
+      redirect_to ideas_path
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -36,5 +39,4 @@ class IdeasController < ApplicationController
   def idea_resource_params
     params.require(:idea).permit(:title, :description, :photo_url, :done_count, :description)
   end
-
 end
