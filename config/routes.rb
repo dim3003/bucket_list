@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   get 'styles/organisms'
 
-  resources :ideas
+  resources :ideas do
+    resouurces :comments
+  end
 
   get 'account/ideas'
 
