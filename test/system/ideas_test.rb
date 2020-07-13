@@ -98,7 +98,7 @@ class IdeasTest < ApplicationSystemTestCase
     refute page.has_content?('Overnight hike in Switzerland')
   end
 
-  test 'validation test' do
+  test 'validation test for creating ideas' do
     visit(new_idea_path)
     fill_in('Title', with: 'Test Idea that is too long to be able to be validated reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
     fill_in('Done count', with: 420)
@@ -106,5 +106,16 @@ class IdeasTest < ApplicationSystemTestCase
     click_on('Create Idea', match: :first)
 
     assert page.has_content?('Title is too long (maximum is 75 characters)')
+  end
+
+  test 'validation test for editing ideas' do
+    idea = Idea.new title: 'Test Idea'
+    idea.save
+
+    visit(edit_idea_path(idea))
+    fill_in('Title', with: '')
+    click_on('Update Idea', match: :first)
+
+    assert page.has_content?("Title can't be blank")
   end
 end
