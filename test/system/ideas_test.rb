@@ -49,13 +49,13 @@ class IdeasTest < ApplicationSystemTestCase
     fill_in('q', with: 'Mont')
     click_on('Search', match: :first)
 
-    assert current_path.include?(ideas_index_path)
+    assert current_path.include?(ideas_path)
     assert page.has_content?('Climb Mont Blanc')
     refute page.has_content?('Visit Niagara Falls')
   end
 
   test 'search no idea found' do
-    visit(ideas_index_path)
+    visit(ideas_path)
     assert page.has_content?('No idea found')
   end
 
