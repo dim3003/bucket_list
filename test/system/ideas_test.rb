@@ -28,11 +28,10 @@ class IdeasTest < ApplicationSystemTestCase
     idea = Idea.new
     idea.save!
     visit(edit_idea_path(idea))
-    fill_in('title', with: 'Climb Bishorn')
-    fill_in('done_count', with: 69)
+    fill_in('Title', with: 'Climb Bishorn')
+    fill_in('Done count', with: 69)
     click_on('Update', match: :first)
     click_on('Climb Bishorn', match: :first)
-
     assert page.has_content?('Climb Bishorn')
     assert page.has_content?('69 have done this')
   end
