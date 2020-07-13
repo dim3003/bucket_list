@@ -5,8 +5,7 @@ class IdeaTest < ActiveSupport::TestCase
     first_idea = Idea.new
     first_idea.title = 'first_idea'
     first_idea.save!
-    second_idea = Idea.new
-    second_idea.title = 'second_idea'
+    second_idea = Idea.new title: 'Second_idea'
     second_idea.save!
     assert_equal(first_idea, Idea.all.first)
   end
@@ -142,4 +141,15 @@ class IdeaTest < ActiveSupport::TestCase
 
     assert_equal Idea.search('mountains').length, 2
   end
+
+  test 'title validation' do
+    idea = Idea.new title: 'A title too long which should not pass the validation test we put in place !'
+    refute idea.valid?
+  end
+
+  test 'title validation with no title attribute' do
+    idea = Idea.new
+    refute idea.valid?
+  end
+
 end
