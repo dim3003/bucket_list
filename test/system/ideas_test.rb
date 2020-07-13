@@ -3,10 +3,10 @@ require "application_system_test_case"
 class IdeasTest < ApplicationSystemTestCase
   test 'create new idea' do
     visit(new_idea_path)
-    fill_in('title', with: 'Test Idea')
-    fill_in('done_count', with: 420)
-    fill_in('photo_url', with: 'https://www.gettyimages.co.uk/gi-resources/images/RoyaltyFree/Apr17Update/ColourSurge1.jpg')
-    click_on('Create idea', match: :first)
+    fill_in('Title', with: 'Test Idea')
+    fill_in('Done count', with: 420)
+    fill_in('Photo url', with: 'https://www.gettyimages.co.uk/gi-resources/images/RoyaltyFree/Apr17Update/ColourSurge1.jpg')
+    click_on('Create Idea', match: :first)
     assert page.has_content?('Test Idea')
   end
 
