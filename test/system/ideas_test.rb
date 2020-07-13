@@ -97,4 +97,14 @@ class IdeasTest < ApplicationSystemTestCase
     assert page.has_content?('Visit Provence')
     refute page.has_content?('Overnight hike in Switzerland')
   end
+
+  test 'validation test' do
+    visit(new_idea_path)
+    fill_in('Title', with: 'Test Idea that is too long to be able to be validated reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
+    fill_in('Done count', with: 420)
+    fill_in('Photo url', with: 'https://www.gettyimages.co.uk/gi-resources/images/RoyaltyFree/Apr17Update/ColourSurge1.jpg')
+    click_on('Create Idea', match: :first)
+
+    assert page.has_content?('Title is too long (maximum is 75 characters)')
+  end
 end
