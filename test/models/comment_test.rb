@@ -12,7 +12,30 @@ class CommentTest < ActiveSupport::TestCase
     comment.save
 
     assert_equal Comment.first.idea, idea_2
+  end
 
+  test 'cascading save' do
+    idea = Idea.new title: 'a valid title'
+    idea.save
+    comment = Comment.new body: "Great idea!"
+    idea.comments << comment
+    idea.save
+    assert_equal Comment.first, comment
+  end
+
+  test 'Comments are ordered properly' do
+    idea = Idea.new title: 'a valid title'
+    idea.save
+
+    comment = Comment.new body: "This would be great fun"
+    comment_2 = Comment.new body: "I agree! I's like to do this as well"
+
+    idea.comments << comment
+    idea.comments << comment_2
+    idea.save
+
+    assert_equal Comment.first, comment
+    assert_equal 2, idea.comments.length
   end
 
 end
