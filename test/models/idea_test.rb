@@ -3,8 +3,10 @@ require 'test_helper'
 class IdeaTest < ActiveSupport::TestCase
   test 'the first empty Idea created is first in the list' do
     first_idea = Idea.new
+    first_idea.title = 'first_idea'
     first_idea.save!
     second_idea = Idea.new
+    second_idea.title = 'second_idea'
     second_idea.save!
     assert_equal(first_idea, Idea.all.first)
   end
@@ -35,6 +37,7 @@ class IdeaTest < ActiveSupport::TestCase
 
   test 'updated_at is changed after updating done_count' do
     idea = Idea.new
+    idea.title = 'updated at test'
     idea.done_count = 42
     idea.save!
     first_updated_at = idea.updated_at
@@ -45,6 +48,7 @@ class IdeaTest < ActiveSupport::TestCase
 
   test 'updated_at is changed after updating photo_url' do
     idea = Idea.new
+    idea.title = 'updated_at idea'
     idea.photo_url = 'https://images.unsplash.com/photo-1516632664305-eda5d6a5bb99?ixlib=rb-1.2.1&w=1000&q=80'
     idea.save!
     first_updated_at = idea.updated_at

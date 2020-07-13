@@ -26,6 +26,7 @@ class IdeasTest < ApplicationSystemTestCase
 
   test 'edit idea test' do
     idea = Idea.new
+    idea.title = 'edit idea test'
     idea.save!
     visit(edit_idea_path(idea))
     fill_in('Title', with: 'Climb Bishorn')

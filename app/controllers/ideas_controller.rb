@@ -16,7 +16,9 @@ class IdeasController < ApplicationController
 
   def create
     idea = Idea.new(idea_resource_params)
-    idea.save!
+    idea.valid?
+    idea.errors.full_messages
+    idea.save
     redirect_to ideas_path
   end
 
