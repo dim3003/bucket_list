@@ -34,7 +34,7 @@ class IdeasController < ApplicationController
   private
 
   def idea_resource_params
-    params.require(:idea).permit(:title, :description, :photo_url, :done_count)
+    params.require(:idea).permit(:title, :description, :photo_url, :done_count, :description)
   end
 
 end
