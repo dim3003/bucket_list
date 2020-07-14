@@ -4,5 +4,14 @@ class UserController < ApplicationController
   end
 
   def create
+    user = User.find_or_create_by(user_resource_params[:email])
+    redirect_to ideas_path
   end
+
+  private
+
+  def user_resource_params
+    params.require(:user).permit(:email)
+  end
+
 end
