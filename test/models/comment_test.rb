@@ -5,11 +5,11 @@ class CommentTest < ActiveSupport::TestCase
   test 'changing the associated Idea for a Comment' do
     idea = Idea.new title: 'a valid title'
     idea.save
-    comment = Comment.new(body: "I'd like to do this!", idea: idea)
+    comment = Comment.new body: "I'd like to do this!", idea: idea, user: User.new
     idea_2 = Idea.new title: 'another valid title'
-    idea_2.save
+    idea_2.save!
     comment.idea = idea_2
-    comment.save
+    comment.save!
 
     assert_equal Comment.first.idea, idea_2
   end
@@ -17,7 +17,7 @@ class CommentTest < ActiveSupport::TestCase
   test 'cascading save' do
     idea = Idea.new title: 'a valid title'
     idea.save
-    comment = Comment.new body: "Great idea!"
+    comment = Comment.new body: "Great idea!", user: User.new
     idea.comments << comment
     idea.save
     assert_equal Comment.first, comment
@@ -27,8 +27,8 @@ class CommentTest < ActiveSupport::TestCase
     idea = Idea.new title: 'a valid title'
     idea.save
 
-    comment = Comment.new body: "This would be great fun"
-    comment_2 = Comment.new body: "I agree! I's like to do this as well"
+    comment = Comment.new body: "This would be great fun", user: User.new
+    comment_2 = Comment.new body: "I agree! I's like to do this as well", user: User.new
 
     idea.comments << comment
     idea.comments << comment_2
