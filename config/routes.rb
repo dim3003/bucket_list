@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'user/new'
+
   root to: 'home#index'
 
   get 'home/index'
@@ -12,6 +14,9 @@ Rails.application.routes.draw do
 
   resources :ideas do
     resources :comments
+
+  resources :users
+  
   end
 
   get 'account/ideas'
