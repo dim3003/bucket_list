@@ -17,6 +17,7 @@ class IdeasController < ApplicationController
   end
 
   def create
+    @user = User.find[session[:user_id]]
     @idea = Idea.new(idea_resource_params)
     if(@idea.save)
       redirect_to ideas_path
