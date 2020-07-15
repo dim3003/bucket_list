@@ -1,6 +1,6 @@
 class GoalsController < ApplicationController
 
-  def created_at
+  def create
     user = User.find(params[:user_id])
     idea = Idea.find(params[:idea_id])
     user.goals << idea
