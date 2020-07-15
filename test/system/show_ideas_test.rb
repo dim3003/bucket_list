@@ -2,8 +2,8 @@ require "application_system_test_case"
 
 class ShowIdeasTest < ApplicationSystemTestCase
   test 'show' do
-    idea = Idea.new
-    idea.title = 'Ragnar Lothbrok'
+    idea = Idea.new title: 'Ragnar Lothbrok',
+                    user: User.new
     idea.done_count = 789
     idea.save!
 

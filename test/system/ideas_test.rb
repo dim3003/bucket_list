@@ -11,12 +11,12 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'index loads ideas' do
-    idea_1 = Idea.new
-    idea_1.title = 'Join a tennis club'
+    idea_1 = Idea.new title: 'Join a tennis club',
+                      user: User.new
     idea_1.save!
 
-    idea_2 = Idea.new
-    idea_2.title = 'Start a blog'
+    idea_2 = Idea.new title: 'Start a blog',
+                      user: User.new
     idea_2.save!
 
     visit(ideas_path)
@@ -25,8 +25,8 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'edit idea test' do
-    idea = Idea.new
-    idea.title = 'edit idea test'
+    idea = Idea.new title: 'edit idea test',
+                    user: User.new
     idea.save!
     visit(edit_idea_path(idea))
     fill_in('Title', with: 'Climb Bishorn')
@@ -38,11 +38,11 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'search' do
-    idea_1 = Idea.new
-    idea_1.title = 'Climb Mont Blanc'
+    idea_1 = Idea.new title: 'Climb Mont Blanc',
+                      user: User.new
     idea_1.save!
-    idea_2 = Idea.new
-    idea_2.title = 'Visit Niagara Falls'
+    idea_2 = Idea.new title: 'Visit Niagara Falls',
+                      user: User.new
     idea_2.save!
 
     visit('/')
@@ -61,8 +61,8 @@ class IdeasTest < ApplicationSystemTestCase
 
   test 'check homepage ideas' do
     4.times do |i|
-      idea = Idea.new
-      idea.title = "Exciting new idea #{i+1}"
+      idea = Idea.new title: "Exciting new idea #{i+1}",
+                      user: User.new
       idea.save!
     end
 
@@ -76,17 +76,17 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'search description test' do
-    idea_1 = Idea.new
-    idea_1.title = 'Go cycling across Europe'
-    idea_1.description = 'An amazing way to see lots of Europe'
+    idea_1 = Idea.new title: 'Go cycling across Europe',
+                      user: User.new,
+                      description: 'An amazing way to see lots of Europe'
     idea_1.save!
-    idea_2 = Idea.new
-    idea_2.title = 'Visit Provence'
-    idea_2.description = 'Go to vineyards, go cycling up Mont Ventoux, see the fields of lavender'
+    idea_2 = Idea.new title: 'Visit Provence',
+                      description: 'Go to vineyards, go cycling up Mont Ventoux, see the fields of lavender',
+                      user: User.new
     idea_2.save!
-    idea_3 = Idea.new
-    idea_3.title = 'Overnight hike in Switzerland'
-    idea_3.description = 'Stay in a Swiss refuge in the mountains'
+    idea_3 = Idea.new title: 'Overnight hike in Switzerland',
+                      description: 'Stay in a Swiss refuge in the mountains',
+                      user: User.new
     idea_3.save!
 
     visit('/')
@@ -109,7 +109,8 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'validation test for editing ideas' do
-    idea = Idea.new title: 'Test Idea'
+    idea = Idea.new title: 'Test Idea',
+                    user: User.new
     idea.save
 
     visit(edit_idea_path(idea))
