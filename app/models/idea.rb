@@ -2,8 +2,9 @@ class Idea < ApplicationRecord
   validates :title, presence: true
   validates :title, length: {maximum: 75}
 
+  belongs_to :user
+
   has_many :comments
-  has_one  :user
 
   def self.search(search_term)
     wildcard_filter = "%#{search_term}%"
