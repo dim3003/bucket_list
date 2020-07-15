@@ -2,6 +2,11 @@ require "application_system_test_case"
 
 class IdeasTest < ApplicationSystemTestCase
   test 'create new idea' do
+    user = User.new email: 'an@email.com'
+    user.save!
+    visit(new_user_path)
+    fill_in('Email address', with: user.email)
+    click_on('Log in', match: :first)
     visit(new_idea_path)
     fill_in('Title', with: 'Test Idea')
     fill_in('Done count', with: 420)
@@ -99,6 +104,12 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'validation test for creating ideas' do
+    user = User.new email: 'an@email.com'
+    user.save!
+    visit(new_user_path)
+    fill_in('Email address', with: user.email)
+    click_on('Log in', match: :first)
+    visit(new_idea_path)
     visit(new_idea_path)
     fill_in('Title', with: 'Test Idea that is too long to be able to be validated reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
     fill_in('Done count', with: 420)
