@@ -11,6 +11,11 @@ class IdeasController < ApplicationController
   end
 
   def show
+    if(session[:user_id])
+      @user = User.find(session[:user_id])
+    else
+      @user = nil
+    end
     @idea = Idea.find(params[:id])
     @comment = Comment.new
     @display_add_comment = session[:user_id].present?
