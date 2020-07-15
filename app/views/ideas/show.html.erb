@@ -24,7 +24,7 @@
               <%= if(@user.present?) %>
                 <%= form_tag(user_goals_path(@user)) do %>
                   <%= hidden_field_tag('idea_id', @idea_id) %>
-                  <%= button_tag('Add', class: 'btn delta') do %>
+                  <%= button_tag('Add', class: 'btn delta', disabled: @disable_add_goal) do %>
                     <svg class="icon-heart icon--sm" role="presentation">
                       <use xlink:href="/images/icons/icons-defs.svg#heart"></use>
                     </svg>
