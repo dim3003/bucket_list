@@ -11,7 +11,7 @@ class IdeasController < ApplicationController
   end
 
   def show
-    if(session[:user_id])
+    if(session[:user_id].present?)
       @user = User.find(session[:user_id])
     else
       @user = nil
