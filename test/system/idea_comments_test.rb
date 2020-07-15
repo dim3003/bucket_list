@@ -21,4 +21,12 @@ class IdeaCommentsTest < ApplicationSystemTestCase
     assert page.has_content?('a comment')
   end
 
+  test 'comments cannot be added when not logged in' do
+    idea = Idea.new title: 'a valid idea'
+    idea.save!
+
+    visit(idea_path(idea))
+    refute page.has_content?('Add a comment')
+  end
+
 end
