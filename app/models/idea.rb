@@ -6,6 +6,8 @@ class Idea < ApplicationRecord
 
   has_many :comments
 
+  has_and_belongs_to_many :users
+
   def self.search(search_term)
     wildcard_filter = "%#{search_term}%"
     where('title LIKE ?', wildcard_filter).or(where('description LIKE ?', wildcard_filter))
