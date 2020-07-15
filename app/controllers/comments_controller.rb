@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
     comment = Comment.new(comment_resource_params)
     idea = Idea.find(params[:idea_id])
     comment.idea = idea
+    comment.user = session[:user_id]
     comment.save
     redirect_to idea_path(idea)
   end

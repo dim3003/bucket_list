@@ -3,6 +3,7 @@ class Idea < ApplicationRecord
   validates :title, length: {maximum: 75}
 
   has_many :comments
+  has_one  :user
 
   def self.search(search_term)
     wildcard_filter = "%#{search_term}%"
