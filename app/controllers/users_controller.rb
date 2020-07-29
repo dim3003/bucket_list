@@ -5,13 +5,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create_by(user_params)
+    @user = User.new(user_params)
     if(@user.save)
       session[:user_id] = @user.id
+      redirect_to ideas_path
     else
       render 'new'
-    end
-    redirect_to ideas_path
+    end  
   end
 
   private
