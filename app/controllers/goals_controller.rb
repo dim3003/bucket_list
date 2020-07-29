@@ -7,4 +7,5 @@ class GoalsController < ApplicationController
 
     redirect_to idea_path(idea)
   end
+
 end
