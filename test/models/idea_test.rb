@@ -109,10 +109,10 @@ class IdeaTest < ActiveSupport::TestCase
     assert_equal Idea.most_recent.first, ideas[5]
   end
 
-  test 'search with tag' do
+  test 'search with description' do
     idea = Idea.new title: 'Surfing in Portugal',
                     user: User.new,
-                    tag: 'Sike!'
+                    description: 'Sike!'
     idea.save!
 
     assert_equal Idea.search('coast').length, 1
@@ -120,11 +120,11 @@ class IdeaTest < ActiveSupport::TestCase
 
   test 'search with description and title' do
     idea_1 = Idea.new title: 'Overnight hike in Switzerland',
-                      tag: 'Stay',
+                      description: 'Stay',
                       user: User.new
     idea_1.save!
     idea_2 = Idea.new title: 'Hike the mountains in Italy',
-                      tag: 'See',
+                      description: 'See',
                       user: User.new
     idea_2.save!
 
