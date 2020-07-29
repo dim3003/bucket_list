@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'user/new'
-
   root to: 'home#index'
 
   get 'home/index'
@@ -13,6 +11,8 @@ Rails.application.routes.draw do
   get 'styles/organisms'
 
 
+  get 'account/ideas'
+
   resources :users do
     resources :goals
   end
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  get 'account/ideas'
+  resources :sessions, only[:new, :create]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
