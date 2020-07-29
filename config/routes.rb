@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'account/ideas'
 
 
-  resources :sessions, only[:new, :create]
+  resources :sessions, only: [:new, :create]
 
   resources :users do
     resources :goals
