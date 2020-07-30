@@ -2,10 +2,12 @@ require "application_system_test_case"
 
 class IdeasTest < ApplicationSystemTestCase
   test 'create new idea' do
-    user = User.new email: 'an@email.com'
+    user = User.new email: 'an@email.com',
+                    password: 'password'
     user.save!
-    visit(new_user_path)
-    fill_in('Email address', with: user.email)
+    visit(new_session_path)
+    fill_in('email', with: user.email)
+    fill_in('password', with: user.password)
     click_on('Log in', match: :first)
     visit(new_idea_path)
     fill_in('Title', with: 'Test Idea')
@@ -105,13 +107,16 @@ class IdeasTest < ApplicationSystemTestCase
     refute page.has_content?('Overnight hike in Switzerland')
   end
 
-  test 'validation test for creating ideas' do
-    user = User.new email: 'an@email.com'
+  test 'new idea with no title' do
+    user = User.new email: 'an@email.com',
+                    password: 'password'
     user.save!
-    visit(new_user_path)
-    fill_in('Email address', with: user.email)
+
+    visit(new_session_path)
+    fill_in('email', with: user.email)
+    fill_in('password', with: user.password)
     click_on('Log in', match: :first)
-    visit(new_idea_path)
+
     visit(new_idea_path)
     fill_in('Title', with: 'Test Idea that is too long to be able to be validated reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
     fill_in('Done count', with: 420)
