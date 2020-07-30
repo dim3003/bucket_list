@@ -29,9 +29,11 @@ class IdeasTest < ApplicationSystemTestCase
     assert page.has_content?('Start a blog')
   end
 
-  test 'edit idea test' do
+  test 'editing an idea test' do
+    user = User.new email: 'new@epfl.ch',
+                    password: 'password'
     idea = Idea.new title: 'edit idea test',
-                    user: User.new
+                    user: user
     idea.save!
     visit(edit_idea_path(idea))
     fill_in('Title', with: 'Climb Bishorn')
