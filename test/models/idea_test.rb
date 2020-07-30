@@ -112,14 +112,14 @@ class IdeaTest < ActiveSupport::TestCase
   test 'search with description' do
     idea = Idea.new title: 'Surfing in Portugal',
                     user: User.new,
-                    description: 'Sike!'
+                    description: 'coast!'
     idea.save!
 
     assert_equal Idea.search('coast').length, 1
   end
 
   test 'search with description and title' do
-    idea_1 = Idea.new title: 'Overnight hike in Switzerland',
+    idea_1 = Idea.new title: 'Overnight hike in Switzerland mountains',
                       description: 'Stay',
                       user: User.new
     idea_1.save!
