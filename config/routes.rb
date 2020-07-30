@@ -15,9 +15,9 @@ Rails.application.routes.draw do
 
   get 'login', to: 'session#new'
 
-  get 'signup', to: 'users#new' 
+  get 'signup', to: 'users#new'
 
-  resources :sessions, only: [:new, :create]
+  resources :sessions, only: [:new, :create, :destroy]
 
   resources :users do
     resources :goals
