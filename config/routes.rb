@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get 'account/ideas'
 
-  get 'login', to: 'session#new'
+  get 'login', to: 'sessions#new'
 
   get 'signup', to: 'users#new'
 
