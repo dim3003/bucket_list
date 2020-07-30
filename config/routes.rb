@@ -13,6 +13,9 @@ Rails.application.routes.draw do
 
   get 'account/ideas'
 
+  get 'login', to: 'session#new'
+
+  get 'signup', to: 'users#new' 
 
   resources :sessions, only: [:new, :create]
 
