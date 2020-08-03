@@ -59,7 +59,9 @@ class IdeasController < ApplicationController
   end
 
   def ensure_owner
-    if(idea.user == current_user)
+    if(current_user.role == 'admin')
+      return
+    elsif(idea.user == current_user)
       return
     end
 
