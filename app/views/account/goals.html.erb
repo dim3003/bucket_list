@@ -1,5 +1,13 @@
 <main>
   <div class="content-wrapper">
+    <nav>
+      <ul class="sub-navigation">
+        <li><%= link_to('Account', account_path)%></li>
+        <li><%= link_to('Goals', account_goals_path, class: 'current')%></li>
+        <li><a href="#nolink">Ideas</a></li>
+        <li><a href="#nolink">Following</a></li>
+      </ul>
+    </nav>
     <h1>My goals</h1>
   </div>
   <div class="content-wrapper">
