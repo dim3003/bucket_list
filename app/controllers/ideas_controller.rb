@@ -3,7 +3,7 @@ class IdeasController < ApplicationController
 
   before_action :ensure_authenticated, only: [:new, :create, :edit, :update]
   before_action :load_idea,            only: [:edit, :update]
-  before_action :ensure_owner,         only: [:edit, :update]
+  before_action :authorize_to_edit_idea,         only: [:edit, :update]
 
   def index
     @search_term = params[:q]
@@ -60,8 +60,8 @@ class IdeasController < ApplicationController
     @idea = Idea.find(params[:id])
   end
 
-  def ensure_owner
-    redirect_to(account_path) unless(can_edit?(@idea))
+  def authorize_to_edit_idea
+    redirect_to(account_path) unless (can_edit?(@idea))
   end
 
 end
