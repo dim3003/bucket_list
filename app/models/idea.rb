@@ -15,4 +15,6 @@ class Idea < ApplicationRecord
 
   scope :most_recent, -> {all.order(created_at: :desc).limit(3)}
 
+  scope :title_contains, ->(term) { where('title LIKE ?', "%#{term}%") }
+
 end
