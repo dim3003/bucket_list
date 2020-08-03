@@ -22,3 +22,7 @@ user3 = User.create! email: 'visitor3@extensionschool.ch',
   Idea.create! title: "Idea for #{user2.name} #{i}", user: user2
   Idea.create! title: "Idea for #{user3.name} #{i}", user: user3
 end
+
+admin.goals << user1.ideas.first
+admin.goals << user2.ideas.first
+admin.goals << user3.ideas.first
