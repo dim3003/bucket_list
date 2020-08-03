@@ -1,5 +1,6 @@
 class AccountController < ApplicationController
-  before_action :ensure_authenticated
+  before_action :ensure_authenticated, only: :edit
+  before_action :ensure_owner, only: :edit
 
   def edit
   end
@@ -17,6 +18,16 @@ class AccountController < ApplicationController
 
   def goals
     @goals = current_user.goals
+  end
+
+  def ensure_owner
+    idea = Idea.find(params[:id])
+
+    if(idea.user == current_user)
+      return
+    end
+
+    redirect_to(account_path)
   end
 
   private
