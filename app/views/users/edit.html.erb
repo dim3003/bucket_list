@@ -1,7 +1,7 @@
 <main>
   <section class="envelope">
     <header class="text--center">
-      <h1 class="gamma">Sign up</h1>
+      <h1 class="gamma">Edit user</h1>
     </header>
     <main>
       <% if(@user.errors.any?) %>
@@ -23,11 +23,11 @@
           <%= form.text_field(:avatar_url, class: "input-group__field") %>
         </div>
         <div class="input-group">
-          <%= form.label(:user, 'Role', class: "input-group__label") %>
-          <%= form.select(:user, %w(registered admin), {}, class: 'input-group__field') %>
+          <%= form.label(:role, class: "input-group__label") %>
+          <%= form.select(:role, %w(registered admin), {}, class: 'input-group__field') %>
         </div>
         <div class="prompt">
-          <%= form.submit('Edit User', class: "btn btn--primary prompt__confirm") %>
+          <%= form.submit(class: "btn btn--primary prompt__confirm") %>
         </div>
       <% end %>
     </main>

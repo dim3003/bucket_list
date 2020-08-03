@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.fin params[:id]
+    @user = User.find params[:id]
   end
 
   def update
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     if (current_user.role == 'admin')
       return
     end
-    
+
     redirect_to(account_path)
   end
 
