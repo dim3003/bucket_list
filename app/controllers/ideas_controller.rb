@@ -9,7 +9,7 @@ class IdeasController < ApplicationController
     @search_term = params[:q]
     logger.info("Search completed using #{@search_term}")
 
-    @ideas = Idea.search(@search_term)
+    @ideas = Idea.search(@search_term).page(params[:page])
   end
 
   def new

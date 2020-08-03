@@ -8,6 +8,7 @@ class Idea < ApplicationRecord
 
   has_and_belongs_to_many :users
 
+
   scope :most_recent,          -> {all.order(created_at: :desc).limit(3)}
   scope :title_contains,       ->(term) { where('title LIKE ?', "%#{term}%") }
   scope :description_contains, ->(term) { where('description LIKE ?', "%#{term}%") }
@@ -15,5 +16,6 @@ class Idea < ApplicationRecord
 
   scope :search, ->(search_term) { title_contains(search_term).or(description_contains(search_term)) }
 
+  paginates_per 9
 
 end
