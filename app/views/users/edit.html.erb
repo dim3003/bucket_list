@@ -1,0 +1,35 @@
+<main>
+  <section class="envelope">
+    <header class="text--center">
+      <h1 class="gamma">Sign up</h1>
+    </header>
+    <main>
+      <% if(@user.errors.any?) %>
+        <div class="alert alert--wide">
+          <%= @user.errors.full_messages.join('<br />') %>
+        </div>
+      <% end %>
+      <%= form_for(@user) do |form| %>
+        <div class="input-group">
+          <%= form.label(:email, 'Email address', class: "input-group__label") %>
+          <%= form.text_field(:email, class: "input-group__field", placeholder: "e.g. me@epfl.ch") %>
+        </div>
+        <div class="input-group">
+          <%= form.label(:name, 'Email address', class: "input-group__label") %>
+          <%= form.text_field(:name, class: "input-group__field", placeholder: "e.g. James Dean") %>
+        </div>
+        <div class="input-group">
+          <%= form.label(:avatar_url, 'Email address', class: "input-group__label") %>
+          <%= form.text_field(:avatar_url, class: "input-group__field") %>
+        </div>
+        <div class="input-group">
+          <%= form.label(:user, 'Role', class: "input-group__label") %>
+          <%= form.select(:user, %w(registered admin), {}, class: 'input-group__field') %>
+        </div>
+        <div class="prompt">
+          <%= form.submit('Edit User', class: "btn btn--primary prompt__confirm") %>
+        </div>
+      <% end %>
+    </main>
+  </section>
+</main>
