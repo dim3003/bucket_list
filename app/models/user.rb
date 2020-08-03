@@ -11,10 +11,18 @@ class User < ApplicationRecord
 
   before_validation :downcase_email
 
+  after_initialize :default_role!
+
+  validates :role, inclusion: { in: %w(registered admin) } 
+
   private
 
   def downcase_email
     self.email = email.downcase if email
+  end
+
+  def default_role!
+    self.role ||= 'registered'
   end
 
 end
