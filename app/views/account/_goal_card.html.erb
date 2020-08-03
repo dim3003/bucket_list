@@ -15,8 +15,8 @@
       </svg>
       Delete
     </button>
-    <% if(can_edit?(goal)) do %>
-      <%= link_to(edit_idea_path(goal), class: "btn delta" do %>
+    <% if(can_edit?(goal))%>
+      <%= link_to(edit_idea_path(goal), class: "btn delta") do %>
         <svg class="icon-edit" role="presentation">
           <use href="<%= image_path('icons/icons-defs.svg') %>#edit"></use>
         </svg>

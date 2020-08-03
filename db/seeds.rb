@@ -6,15 +6,15 @@ admin = User.create! email: 'neill@extensionschool.ch',
 
 user1 = User.create! email: 'visitor@extensionschool.ch',
                      password: 'password',
-                     name: 'Visitor'
+                     name: 'Visitor 1'
 
 user2 = User.create! email: 'visitor2@extensionschool.ch',
                      password: 'password',
-                     name: 'Visitor'
+                     name: 'Visitor 2'
 
 user3 = User.create! email: 'visitor3@extensionschool.ch',
                      password: 'password',
-                     name: 'Visitor'
+                     name: 'Visitor 3'
 
 1.upto(5) do |i|
   Idea.create! title: "Idea for #{admin.name} #{i}", user: admin
