@@ -17,6 +17,10 @@ Rails.application.routes.draw do
 
   get 'signup', to: 'users#new'
 
+  get 'account', to: 'account#edit'
+
+  patch 'account', to: 'account#update' 
+
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :users do

@@ -1,5 +1,6 @@
 class AccountController < ApplicationController
   before_action :ensure_authenticated
+  
   current_user :helper_method
 
   def ideas
