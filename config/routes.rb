@@ -19,7 +19,10 @@ Rails.application.routes.draw do
 
   get 'account', to: 'account#edit'
 
-  patch 'account', to: 'account#update' 
+  get 'account/goals'
+
+  patch 'account', to: 'account#update'
+
 
   resources :sessions, only: [:new, :create, :destroy]
 

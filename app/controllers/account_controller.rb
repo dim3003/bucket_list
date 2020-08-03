@@ -3,11 +3,6 @@ class AccountController < ApplicationController
 
   helper_method :current_user
 
-  def ideas
-    user_id = session[:user_id]
-    user = User.find(user_id)
-    @ideas = user.ideas
-  end
 
   def edit
   end
@@ -16,6 +11,17 @@ class AccountController < ApplicationController
     current_user.update(user_params)
     redirect_to account_path
   end
+
+  def ideas
+    user_id = session[:user_id]
+    user = User.find(user_id)
+    @ideas = user.ideas
+  end
+
+  def goals
+    @goals = current_user.goals
+  end
+
 
   def ensure_authenticated
     unless(logged_in?)
