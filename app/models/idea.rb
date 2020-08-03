@@ -13,7 +13,6 @@ class Idea < ApplicationRecord
     where('title LIKE ?', wildcard_filter).or(where('description LIKE ?', wildcard_filter))
   end
 
-  def self.most_recent
-    all.order(created_at: :desc).limit(3)
-  end
+  scope :most_recent, -> {all.order(created_at: :desc).limit(3)}
+
 end
