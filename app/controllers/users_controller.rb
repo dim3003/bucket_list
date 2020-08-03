@@ -11,7 +11,15 @@ class UsersController < ApplicationController
       redirect_to ideas_path
     else
       render 'new'
-    end  
+    end
+  end
+
+  def edit
+    @user = User.fin params[:id]
+  end
+
+  def update
+
   end
 
   private
