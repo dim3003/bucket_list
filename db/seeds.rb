@@ -1,4 +1,4 @@
-admin = User.create! email: 'neill@extensionschool.ch',
+admin = User.create! email: 'admin@extensionschool.ch',
                      password: 'password',
                      name: 'NJ Pearman',
                      role: 'admin'
