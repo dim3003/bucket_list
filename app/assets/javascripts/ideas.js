@@ -1,0 +1,3 @@
+var Ideas
+
+Ideas = {}
