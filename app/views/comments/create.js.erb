@@ -1,10 +1,10 @@
 var commentTime = document.createElement('time');
-commentTime.setAttribute('datetime', '2017-11-28T13:48');
+commentTime.setAttribute('datetime', '<%= @comment.created_at.strftime('%FT%R') %>');
 commentTime.appendChild(document.createTextNode('Today'));
 
 var commentHeader = document.createElement('h3');
 commentHeader.className = 'comment__title';
-commentHeader.appendChild(document.createTextNode('Tom Jenkinson '));
+commentHeader.appendChild(document.createTextNode('<%= @comment.user.name %>'));
 commentHeader.appendChild(commentTime);
 
 var commentParagraph = document.createElement('p');
