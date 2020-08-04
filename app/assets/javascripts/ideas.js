@@ -3,5 +3,5 @@ var Ideas
 Ideas = {}
 
 Ideas.removeIdeaCard = function(ideaId) {
-  document.getElementById('idea-'+ idea).parentElement.remove();
+  document.getElementById("idea-"+ ideaId).parentElement.remove();
 };
