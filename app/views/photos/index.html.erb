@@ -10,15 +10,15 @@
     <div class="content-wrapper">
       <%= form_tag(idea_photos_path(@idea), method: :get, class: 'form--inpage') do %>
         <div class="input-inline">
-          <%= label_tag("query", "Change search term", class: "input-group__label") %>
+          <%= label_tag(:query, "Change search term", class: "input-group__label") %>
           <div class="input-row">
-            <%= text_field_tag("query", nil, class: "input-row__field") %>
+            <%= text_field_tag(:query, @query, class: "input-row__field") %>
             <%= submit_tag('Go', class:"btn btn--primary btn--inline") %>
           </div>
         </div>
       <% end %>
       <ul class="bare-list float-grid css-grid">
-        <%= @photo.each do |photo| %>
+        <% @photo.each do |photo| %>
           <li>
             <div class="card">
               <div class="card__thumb">
