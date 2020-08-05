@@ -10,6 +10,8 @@ class PhotosController < ApplicationController
   end
 
   def create
+    @idea.update_attributes photo_url: params[:photo_url]
+    redirect_to edit_idea_path(@idea)
   end
 
   private
