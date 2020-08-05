@@ -1,11 +1,12 @@
 class PhotosController < ApplicationController
   include RolesHelper
-  
+
   before_action :ensure_authenticated
   before_action :load_idea
   before_action :authorize
 
   def index
+    @photo = Unsplash::Photo.random(query: @idea.title)
   end
 
   def create
