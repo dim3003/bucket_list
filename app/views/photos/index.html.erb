@@ -1,5 +1,15 @@
 <main>
   <div class="content-wrapper">
+    <%= form_tag(idea_photos_path(@idea)) do %>
+      <div class="input-inline">
+        <%= label_tag("query", "Change search term", class: "input-group__label") %>
+        <label class="input-group__label" for="query">Change search term</label>
+        <div class="input-row">
+          <input name="query" id="query" value="" class="input-row__field" type="text">
+          <button class="btn btn--primary btn--inline" type="submit">Go</button>
+        </div>
+      </div>
+    <% end %>
     <nav>
       <ul class="sub-navigation">
         <li><%= link_to('Idea',  edit_idea_path(@idea)) %></li>
@@ -9,20 +19,22 @@
     <h1>Suggested</h1>
     <div class="content-wrapper">
       <ul class="bare-list float-grid css-grid">
-        <li>
-          <div class="card">
-            <div class="card__thumb">
-              <%= image_tag(@photo.urls.regular) %>
+        <%= @photo.each do |photo| %>
+          <li>
+            <div class="card">
+              <div class="card__thumb">
+                <%= image_tag(photo.urls.regular) %>
+              </div>
             </div>
-          </div>
-          <%= form_tag(idea_photos_path(@idea)) do %>
-            <div class="prompt">
-              <%= hidden_field_tag(:photo_url, @photo.urls.regular) %>
-              <%= submit_tag('Use this photo', class: 'btn btn--primary prompt__confirm') %>
-            </div>
-          <% end %>
-          <p>Photo taken by <%= @photo.user.name %>, available at <%= link_to('https://unsplash.com', @photo.links.html) %></p>
-        </li>
+            <%= form_tag(idea_photos_path(@idea)) do %>
+              <div class="prompt">
+                <%= hidden_field_tag(:photo_url, photo.urls.regular) %>
+                <%= submit_tag('Use this photo', class: 'btn btn--primary prompt__confirm') %>
+              </div>
+            <% end %>
+            <p>Photo taken by <%= photo.user.name %>, available at <%= link_to('https://unsplash.com', photo.links.html) %></p>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
