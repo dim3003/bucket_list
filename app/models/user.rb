@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  mount_uploader :avatar, AvatarUploader
-  
   has_many :comments
   has_many :ideas
 
@@ -13,6 +11,8 @@ class User < ApplicationRecord
 
   after_initialize :default_role!
   before_validation :downcase_email
+
+  mount_uploader :avatar, AvatarUploader
 
   private
 
