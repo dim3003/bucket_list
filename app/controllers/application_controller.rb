@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
 
   helper_method :logged_in?, :current_user
 
+  def default_url_options
+    { locale: I18n.locale }
+  end
+
   def logged_in?
     session[:user_id].present?
   end
@@ -21,8 +25,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def default_url_options
-    { locale: I18n.locale }
-  end
-  
+
+
 end
