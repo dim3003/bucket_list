@@ -14,11 +14,11 @@
     </h1>
     <%= form_for(current_user, url: account_path, html: { class: 'form--inpage'}) do |f| %>
       <div class="input-group input-group--horizontal">
-        <%= f.label(:email, 'Email', class: 'input-group__label') %>
+        <%= f.label(:email, class: 'input-group__label') %>
         <%= f.text_field(:email, class: 'input-group__field', placeholder: 'e.g. me@epfl.ch') %>
       </div>
       <div class="input-group input-group--horizontal">
-        <%= f.label(:name, 'Name', class: 'input-group__label') %>
+        <%= f.label(:name, class: 'input-group__label') %>
         <%= f.text_field(:name, class: 'input-group__field', placeholder: 'e.g. Diana Prince') %>
       </div>
       <div class="input-group input-group--horizontal">
