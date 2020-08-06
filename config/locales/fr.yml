@@ -1,0 +1,13 @@
+fr:
+  inspiration: 'Inspiration'
+  login: 'Connexion'
+  signup: 'S'enregistrer'
+  account: 'Mon compte'
+  logout: 'Déconnexion'
+
+  helpers:
+    label:
+      user:
+        email: 'Email'
+        name: 'Nom'
+        avatar: 'Avatar'
