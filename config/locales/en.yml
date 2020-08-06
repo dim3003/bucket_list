@@ -4,3 +4,10 @@ en:
   signup: 'Sign Up'
   account: 'My account'
   logout: 'Log out'
+
+  helpers:
+    label:
+      user:
+        email: 'Email'
+        name: 'Name'
+        avatar: 'Avatar'
