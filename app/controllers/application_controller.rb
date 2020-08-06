@@ -3,8 +3,14 @@ class ApplicationController < ActionController::Base
 
   helper_method :logged_in?, :current_user
 
+  before_action :set_locale
+
   def default_url_options
     { locale: I18n.locale }
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
   end
 
   def logged_in?
@@ -24,7 +30,4 @@ class ApplicationController < ActionController::Base
       redirect_to login_path
     end
   end
-
-
-
 end
