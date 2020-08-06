@@ -2,3 +2,5 @@ en:
   inspiration: 'Inspiration'
   login: 'Log in'
   signup: 'Sign Up'
+  account: 'My account'
+  logout: 'Log out'
