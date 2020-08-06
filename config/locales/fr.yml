@@ -1,10 +1,9 @@
 fr:
   inspiration: 'Inspiration'
   login: 'Connexion'
-  signup: 'S'enregistrer'
+  signup: "S'enregistrer"
   account: 'Mon compte'
-  logout: 'Déconnexion'
-
+  logout: 'Deconnexion'
   helpers:
     label:
       user:
