@@ -13,5 +13,10 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: bucket_list
+  host: localhost
+  pool: 5
+  username: bucket_list
+  password: 'vagrant'
